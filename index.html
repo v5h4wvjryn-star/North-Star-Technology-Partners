@@ -291,11 +291,12 @@
                 className="flex items-center cursor-pointer group"
                 onClick={() => handleNavClick('home')}
               >
-                <div className={`rounded-lg px-3 py-2 transition-all duration-300 ${scrolled || currentView === 'experts' ? '' : 'bg-white/95 shadow-sm'}`}>
+                <div className={`rounded-lg px-4 py-3 transition-all duration-300 ${scrolled || currentView === 'experts' ? 'bg-slate-900 shadow-lg' : ''}`}>
                   <img
-                    src="Northstar Technology group.png"
+                    src="NSTP logo white.png"
                     alt="North Star Technology Partners"
-                    className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+                    className="h-30 w-auto transition-transform duration-300 group-hover:scale-105"
+                    style={{ height: '120px' }}
                   />
                 </div>
               </div>
@@ -458,13 +459,12 @@
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
                   <div className="mb-6 cursor-pointer inline-block" onClick={() => handleNavClick('home')}>
-                    <div className="bg-white/95 rounded-lg px-3 py-2 inline-block hover:scale-105 transition-transform duration-300">
-                      <img
-                        src="Northstar Technology group.png"
-                        alt="North Star Technology Partners"
-                        className="h-8 w-auto"
-                      />
-                    </div>
+                    <img
+                      src="NSTP logo white.png"
+                      alt="North Star Technology Partners"
+                      className="w-auto hover:scale-105 transition-transform duration-300"
+                      style={{ height: '96px' }}
+                    />
                   </div>
                   <p className="text-slate-400 mb-6">Guiding businesses through the complex landscape of modern technology with reliable, scalable, and secure IT solutions.</p>
                 </div>
