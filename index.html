@@ -291,9 +291,9 @@
                 className="flex items-center cursor-pointer group"
                 onClick={() => handleNavClick('home')}
               >
-                <div className={`rounded-lg px-4 py-3 transition-all duration-300 ${scrolled || currentView === 'experts' ? 'bg-slate-900 shadow-lg' : ''}`}>
+                <div className={`rounded-lg px-4 py-3 transition-all duration-300 ${scrolled || currentView === 'experts' ? '' : 'bg-white/95 shadow-lg'}`}>
                   <img
-                    src="NSTP logo white.png"
+                    src="logo2 white.png"
                     alt="North Star Technology Partners"
                     className="h-30 w-auto transition-transform duration-300 group-hover:scale-105"
                     style={{ height: '120px' }}
@@ -459,12 +459,14 @@
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
                   <div className="mb-6 cursor-pointer inline-block" onClick={() => handleNavClick('home')}>
-                    <img
-                      src="NSTP logo white.png"
-                      alt="North Star Technology Partners"
-                      className="w-auto hover:scale-105 transition-transform duration-300"
-                      style={{ height: '96px' }}
-                    />
+                    <div className="bg-white/95 rounded-lg px-4 py-3 inline-block hover:scale-105 transition-transform duration-300">
+                      <img
+                        src="logo2 white.png"
+                        alt="North Star Technology Partners"
+                        className="w-auto"
+                        style={{ height: '96px' }}
+                      />
+                    </div>
                   </div>
                   <p className="text-slate-400 mb-6">Guiding businesses through the complex landscape of modern technology with reliable, scalable, and secure IT solutions.</p>
                 </div>
