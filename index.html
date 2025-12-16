@@ -288,15 +288,14 @@
           <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || currentView === 'experts' ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
             <div className="container mx-auto px-6 flex justify-between items-center">
               <div
-                className="flex items-center gap-2 cursor-pointer group"
+                className="flex items-center cursor-pointer group"
                 onClick={() => handleNavClick('home')}
               >
-                <div className="bg-blue-600 p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
-                  <Server className="w-6 h-6 text-white" />
-                </div>
-                <span className={`text-xl font-bold tracking-tight ${scrolled || currentView === 'experts' ? 'text-slate-900' : 'text-slate-900 lg:text-white'}`}>
-                  North Star <span className="text-blue-600">Tech</span>
-                </span>
+                <img
+                  src="Northstar Technology group.png"
+                  alt="North Star Technology Partners"
+                  className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
 
               <div className="hidden lg:flex items-center gap-8">
@@ -456,9 +455,12 @@
             <div className="container mx-auto px-6">
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
-                  <div className="flex items-center gap-2 mb-6 cursor-pointer" onClick={() => handleNavClick('home')}>
-                    <div className="bg-blue-600 p-1.5 rounded-md"><Server className="w-5 h-5 text-white" /></div>
-                    <span className="text-xl font-bold text-white">North Star Tech</span>
+                  <div className="mb-6 cursor-pointer" onClick={() => handleNavClick('home')}>
+                    <img
+                      src="Northstar Technology group.png"
+                      alt="North Star Technology Partners"
+                      className="h-10 w-auto hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   <p className="text-slate-400 mb-6">Guiding businesses through the complex landscape of modern technology with reliable, scalable, and secure IT solutions.</p>
                 </div>
