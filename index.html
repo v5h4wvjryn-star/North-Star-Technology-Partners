@@ -37,7 +37,7 @@
     } from 'lucide-react';
 
     // --- SERVICE CATALOG COMPONENT ---
-    const ServiceCard = ({ title, icon: Icon, summary, details, colorClass, iframeUrl }) => {
+    const ServiceCard = ({ title, icon: Icon, summary, details, colorClass, externalLink }) => {
       const [isExpanded, setIsExpanded] = useState(false);
 
       return (
@@ -60,34 +60,30 @@
 
             <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
               <div className="pt-4 border-t border-slate-100">
-                {iframeUrl ? (
-                  <iframe
-                    loading="lazy"
-                    src={iframeUrl}
-                    style={{border: '0px #ffffff none'}}
-                    name="myiFrame"
-                    scrolling="yes"
-                    frameBorder="1"
-                    marginHeight="auto"
-                    marginWidth="auto"
-                    height="900px"
-                    width="100%"
-                    allowFullScreen
-                  />
-                ) : (
-                  details.map((section, idx) => (
-                    <div key={idx} className="mb-6 last:mb-0">
-                      <h4 className="text-sm font-bold text-blue-900 uppercase tracking-wider mb-3">{section.heading}</h4>
-                      <ul className="space-y-2">
-                        {section.items.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-slate-600 text-sm">
-                            <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))
+                {details.map((section, idx) => (
+                  <div key={idx} className="mb-6 last:mb-0">
+                    <h4 className="text-sm font-bold text-blue-900 uppercase tracking-wider mb-3">{section.heading}</h4>
+                    <ul className="space-y-2">
+                      {section.items.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-slate-600 text-sm">
+                          <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+                {externalLink && (
+                  <div className="mt-6 pt-4 border-t border-slate-100">
+                    <a
+                      href={externalLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors"
+                    >
+                      Learn More About Our Technical Consulting <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 )}
               </div>
             </div>
@@ -254,8 +250,13 @@
           icon: Users,
           summary: "Expert technology advisory services to guide your digital transformation and IT strategy.",
           colorClass: "bg-teal-600",
-          iframeUrl: "https://www.telarusuniversity.com/tech-consultant/",
-          details: []
+          externalLink: "https://www.telarusuniversity.com/tech-consultant/",
+          details: [
+            {
+              heading: "Consulting Services",
+              items: ["Design", "Proposal", "Selection", "Implementation", "Support"]
+            }
+          ]
         }
       ];
 
