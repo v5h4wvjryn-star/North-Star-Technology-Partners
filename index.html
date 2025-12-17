@@ -81,7 +81,7 @@
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors"
                     >
-                      Learn More About Our Technical Consulting <ArrowRight className="w-4 h-4" />
+                      Learn More About Our {title} <ArrowRight className="w-4 h-4" />
                     </a>
                   </div>
                 )}
@@ -257,6 +257,27 @@
               items: ["Design", "Proposal", "Selection", "Implementation", "Support"]
             }
           ]
+        },
+        {
+          title: "Digital Transformation Simplified",
+          icon: Cpu,
+          summary: "Modernize your business operations with strategic digital transformation guidance and implementation.",
+          colorClass: "bg-violet-600",
+          externalLink: "https://www.telarusuniversity.com/digital-transformation/",
+          details: [
+            {
+              heading: "Objective",
+              items: ["Assess current technology landscape", "Identify digital opportunities", "Create transformation roadmap"]
+            },
+            {
+              heading: "Strategy",
+              items: ["Process automation", "Cloud migration planning", "Digital workflow optimization"]
+            },
+            {
+              heading: "Benefit",
+              items: ["Increased operational efficiency", "Enhanced customer experience", "Competitive advantage"]
+            }
+          ]
         }
       ];
 
@@ -418,13 +439,14 @@
                     </p>
                   </div>
 
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
                     {[
                       { icon: <ShieldCheck className="w-12 h-12 text-blue-600" />, title: "Cybersecurity", description: "Enterprise-grade protection for your digital assets. We provide 24/7 monitoring, threat detection, and compliance management." },
                       { icon: <Cloud className="w-12 h-12 text-blue-600" />, title: "Cloud Solutions", description: "Seamless migration and management of cloud infrastructure. Optimize your operations with scalable Azure and AWS solutions." },
                       { icon: <Server className="w-12 h-12 text-blue-600" />, title: "Managed IT Services", description: "Proactive maintenance and support for your entire IT ecosystem. Reduce downtime and focus on your core business." },
                       { icon: <Monitor className="w-12 h-12 text-blue-600" />, title: "Network Infrastructure", description: "Robust network design and implementation. We ensure high-speed, reliable connectivity for your workforce." },
-                      { icon: <Users className="w-12 h-12 text-blue-600" />, title: "Technical Consulting", description: "Expert guidance for your technology strategy and implementation. Our consultants help you make informed decisions and maximize your IT investments." }
+                      { icon: <Users className="w-12 h-12 text-blue-600" />, title: "Technical Consulting", description: "Expert guidance for your technology strategy and implementation. Our consultants help you make informed decisions and maximize your IT investments." },
+                      { icon: <Cpu className="w-12 h-12 text-blue-600" />, title: "Digital Transformation", description: "Modernize your business operations with strategic digital transformation guidance and implementation. We help you leverage technology to drive growth and efficiency." }
                     ].map((service, idx) => (
                       <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
                         <div className="mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
@@ -491,7 +513,7 @@
                 <div>
                   <h4 className="text-white font-bold text-lg mb-6">Services</h4>
                   <ul className="space-y-4">
-                    {['Managed IT', 'Cybersecurity', 'Cloud Migration', 'Data Backup', 'VoIP Solutions', 'Technical Consulting'].map((item) => (
+                    {['Managed IT', 'Cybersecurity', 'Cloud Migration', 'Data Backup', 'VoIP Solutions', 'Technical Consulting', 'Digital Transformation'].map((item) => (
                       <li key={item}><button onClick={() => handleNavClick('experts')} className="hover:text-white transition-colors text-left">{item}</button></li>
                     ))}
                   </ul>
