@@ -30,14 +30,11 @@
     import React, { useState, useEffect } from 'react';
     import { createRoot } from 'react-dom/client';
     import {
-      Mail, MapPin, Menu, X,
+      Phone, Mail, MapPin, Menu, X,
       ChevronRight, ArrowRight, CheckCircle2,
       MessageSquare, FileText, Zap, ClipboardList,
-      Wrench, Users, Bot, Calendar
+      Wrench, Users
     } from 'lucide-react';
-
-    const CALENDLY_URL = "https://calendly.com/howard-nstp/30min";
-    const CONTACT_EMAIL = "contact@nstp.tech";
 
     // --- MAIN WEBSITE COMPONENT ---
     const Website = () => {
@@ -67,7 +64,7 @@
       };
 
       const handleCTA = () => {
-        window.open(CALENDLY_URL, '_blank');
+        window.location.href = "mailto:info@NSTP.com?subject=Here's My Problem";
       };
 
       const problems = [
@@ -126,10 +123,9 @@
               <div className="hidden lg:flex items-center gap-8">
                 <button onClick={() => handleNavClick('problems')} className="font-medium text-slate-600 hover:text-blue-500 transition-colors">Problems We Solve</button>
                 <button onClick={() => handleNavClick('how-it-works')} className="font-medium text-slate-600 hover:text-blue-500 transition-colors">How It Works</button>
-                <button onClick={() => handleNavClick('about')} className="font-medium text-slate-600 hover:text-blue-500 transition-colors">About</button>
                 <button onClick={() => handleNavClick('contact')} className="font-medium text-slate-600 hover:text-blue-500 transition-colors">Contact</button>
                 <button onClick={handleCTA} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-blue-600/30 flex items-center gap-2">
-                  Book a Free Call <ChevronRight className="w-4 h-4" />
+                  Tell Me Your Problem <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
 
@@ -142,9 +138,8 @@
               <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-6 flex flex-col gap-4">
                 <button onClick={() => handleNavClick('problems')} className="text-left py-2 text-slate-600 font-medium border-b border-slate-50">Problems We Solve</button>
                 <button onClick={() => handleNavClick('how-it-works')} className="text-left py-2 text-slate-600 font-medium border-b border-slate-50">How It Works</button>
-                <button onClick={() => handleNavClick('about')} className="text-left py-2 text-slate-600 font-medium border-b border-slate-50">About</button>
                 <button onClick={() => handleNavClick('contact')} className="text-left py-2 text-slate-600 font-medium border-b border-slate-50">Contact</button>
-                <button onClick={handleCTA} className="bg-blue-600 text-white w-full py-3 rounded-lg font-medium">Book a Free Call</button>
+                <button onClick={handleCTA} className="bg-blue-600 text-white w-full py-3 rounded-lg font-medium">Tell Me Your Problem</button>
               </div>
             )}
           </nav>
@@ -159,23 +154,18 @@
               <div className="max-w-3xl text-white">
                 <div className="inline-flex items-center gap-2 bg-blue-900/50 border border-blue-700/50 rounded-full px-4 py-1 mb-8">
                   <span className="flex h-2 w-2 rounded-full bg-blue-400 animate-pulse"></span>
-                  <span className="text-sm font-medium text-blue-100">Built for small business — any industry — DFW &amp; beyond</span>
+                  <span className="text-sm font-medium text-blue-100">Built for small business — any industry</span>
                 </div>
                 <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-8">
-                  Your team is doing manually what{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                    AI can do automatically.
-                  </span>
+                  If your business runs on spreadsheets, sticky notes, and group texts —{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">we should talk.</span>
                 </h1>
-                <p className="text-xl text-slate-300 mb-4 leading-relaxed max-w-2xl">
-                  We identify the exact processes your business is doing by hand, build AI-powered workflows and micro-apps to replace them, and have something working for you this week — not in six months.
-                </p>
-                <p className="text-slate-400 mb-10 leading-relaxed max-w-2xl">
-                  If your business still runs on spreadsheets, sticky notes, and group texts — we should talk.
+                <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
+                  We build micro-apps and custom workflows that replace the workarounds your team is already doing manually. No buzzwords. No complexity. Just a fix that works — starting this week.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button onClick={handleCTA} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20">
-                    Book a Free 20-Min Call <ArrowRight className="w-5 h-5" />
+                    Tell Me Your Problem <ArrowRight className="w-5 h-5" />
                   </button>
                   <button onClick={() => handleNavClick('problems')} className="bg-transparent border border-slate-600 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold text-lg transition-all">
                     See What We Fix
@@ -192,8 +182,8 @@
                 {[
                   { number: "Any Industry", label: "If the problem is real, we can fix it" },
                   { number: "This Week", label: "A working solution, not a proposal" },
-                  { number: "AI-Powered", label: "We use the tools so you don't have to" },
-                  { number: "Plain English", label: "No tech jargon, ever" }
+                  { number: "Plain English", label: "No tech jargon, ever" },
+                  { number: "Small Business", label: "Built for owners, not IT departments" }
                 ].map((stat, idx) => (
                   <div key={idx} className="text-center group hover:-translate-y-1 transition-transform duration-300">
                     <div className="text-2xl font-bold text-blue-600 mb-2">{stat.number}</div>
@@ -203,63 +193,6 @@
               </div>
             </div>
           </div>
-
-          {/* ── What We Do ── */}
-          <section className="py-24 bg-white">
-            <div className="container mx-auto px-6">
-              <div className="text-center max-w-2xl mx-auto mb-16">
-                <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">What We Do</h2>
-                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">Two ways we help your business</h3>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-                <div className="bg-white border-2 border-blue-600 rounded-2xl p-8 shadow-sm">
-                  <span className="inline-block bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">Core Service</span>
-                  <div className="bg-blue-50 p-3 rounded-xl inline-block mb-6">
-                    <Bot className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-3">AI Process Automation</h4>
-                  <p className="text-slate-600 leading-relaxed mb-6">We find the tasks your team repeats every week and build AI-powered tools that handle them automatically — follow-ups, reporting, documentation, scheduling, and more.</p>
-                  <ul className="space-y-3">
-                    {[
-                      'AI-powered customer follow-up workflows',
-                      'Automated reporting & job documentation',
-                      'Custom micro-apps built for your process',
-                      'AI tools your team can actually use'
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                        <span className="text-slate-700 text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="bg-white border-2 border-slate-200 rounded-2xl p-8 shadow-sm">
-                  <span className="inline-block bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">Also Available</span>
-                  <div className="bg-slate-100 p-3 rounded-xl inline-block mb-6">
-                    <Users className="w-8 h-8 text-slate-600" />
-                  </div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-3">Fractional IT Leadership</h4>
-                  <p className="text-slate-600 leading-relaxed mb-6">Need a senior IT mind without a full-time hire? With 27 years of enterprise IT leadership across dozens of industries, we can serve as your part-time technology executive.</p>
-                  <ul className="space-y-3">
-                    {[
-                      'Technology strategy & vendor selection',
-                      'IT infrastructure oversight',
-                      'Security posture & compliance guidance',
-                      'Staff augmentation and team coaching'
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                        <span className="text-slate-700 text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-          </section>
 
           {/* ── Problems We Solve ── */}
           <section id="problems" className="py-24 bg-slate-50">
@@ -350,7 +283,7 @@
                     step: "02",
                     icon: Wrench,
                     title: "We Build the Fix",
-                    description: "We turn your problem into a simple, working solution using AI and automation. No bloated software package. No six-month implementation. Just a targeted fix built specifically for your situation."
+                    description: "We turn your problem into a simple, working solution. No bloated software package. No six-month implementation. Just a targeted fix built specifically for your situation."
                   },
                   {
                     step: "03",
@@ -375,91 +308,51 @@
             </div>
           </section>
 
-          {/* ── About ── */}
-          <section id="about" className="py-24 bg-white">
-            <div className="container mx-auto px-6">
-              <div className="flex flex-col lg:flex-row items-center gap-16 max-w-5xl mx-auto">
-                <div className="lg:w-2/5 flex-shrink-0">
-                  <div className="bg-slate-900 rounded-3xl p-10 text-center shadow-2xl">
-                    <div className="w-24 h-24 rounded-full bg-blue-600 flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6">HR</div>
-                    <div className="text-white text-xl font-bold mb-1">Howard Reid</div>
-                    <div className="text-blue-400 text-sm mb-6">Founder &amp; Managing Partner</div>
-                    <div className="text-slate-400 text-sm leading-relaxed">North Star Technology Partners<br />North Richland Hills, TX</div>
-                  </div>
-                </div>
-                <div className="lg:w-3/5">
-                  <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">Who's Behind This</h2>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">27 years building IT that actually works for business</h3>
-                  <p className="text-slate-600 text-lg mb-5 leading-relaxed">
-                    I spent over two decades as a senior IT leader inside private equity-backed companies, managing technology across dozens of businesses in 17 different industries. I've seen every version of "we do it manually because the software never quite fit."
-                  </p>
-                  <p className="text-slate-600 mb-8 leading-relaxed">
-                    Now I help small business owners get the same kind of targeted, practical technology fixes that the big guys get — without the enterprise price tag or the six-month timeline.
-                  </p>
-                  <div className="space-y-4">
-                    {[
-                      "27+ years of enterprise IT leadership",
-                      "Managed IT across 27 PE portfolio companies in 17 industries",
-                      "$12M+ technology budget oversight experience",
-                      "Based in DFW — serving clients locally and remotely"
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-slate-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ── Case Studies ── */}
+          {/* ── Real Problems. Real Fixes. (Case Study Placeholder) ── */}
           <section className="py-24 bg-white">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-2xl mx-auto mb-16">
                 <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">In The Real World</h2>
-                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">What This Looks Like in Practice</h3>
+                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">Real Problems. Real Fixes.</h3>
                 <p className="text-slate-600 text-lg">
                   Every fix we build starts with a real business owner who was tired of doing it the hard way. Here's what that looks like.
                 </p>
-                <p className="text-slate-400 text-sm mt-3 italic">These are illustrative examples based on common problems we solve.</p>
               </div>
               <div className="grid md:grid-cols-3 gap-8">
                 {[
                   {
-                    industry: "Lawn & Tree Service",
-                    problem: "Job notes lived in a group text thread. Crews couldn't find prior job history, and billing disputes were constant because nothing was documented at the job site.",
-                    fix: "A simple mobile-first job documentation app with photos, digital sign-off, and an automatic PDF summary sent to the customer after every visit.",
-                    result: "Billing disputes dropped to near zero. Crew handoffs stopped relying on memory."
+                    industry: "Coming Soon",
+                    problem: "Problem description here",
+                    fix: "What we built to fix it",
+                    result: "The outcome for their business"
                   },
                   {
-                    industry: "HVAC Company",
-                    problem: "Service reminders were handled manually by the office admin. About half went out. The other half were forgotten, and seasonal revenue was unpredictable as a result.",
-                    fix: "An automated follow-up workflow triggered by job close date — text and email reminders sent at 6 and 11 months with a direct booking link.",
-                    result: "Seasonal maintenance bookings increased significantly. Admin time for follow-up: zero."
+                    industry: "Coming Soon",
+                    problem: "Problem description here",
+                    fix: "What we built to fix it",
+                    result: "The outcome for their business"
                   },
                   {
-                    industry: "Insurance Agency",
-                    problem: "Policy renewal tracking was done in a spreadsheet. Agents manually checked it every week and emailed customers individually. Things fell through the cracks.",
-                    fix: "A lightweight renewal dashboard with automated 90/60/30-day customer outreach — personalized by policy type — and a live view of what's due each week.",
-                    result: "No more missed renewals. Agents spend their time closing, not chasing calendars."
+                    industry: "Coming Soon",
+                    problem: "Problem description here",
+                    fix: "What we built to fix it",
+                    result: "The outcome for their business"
                   }
                 ].map((study, idx) => (
-                  <div key={idx} className="bg-white border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition-all duration-300">
+                  <div key={idx} className="bg-slate-50 border-2 border-dashed border-slate-200 p-8 rounded-2xl group hover:border-blue-300 transition-colors duration-300">
                     <div className="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">{study.industry}</div>
                     <div className="space-y-5">
                       <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">The Problem</p>
-                        <p className="text-slate-600 text-sm leading-relaxed">{study.problem}</p>
+                        <p className="text-slate-400 italic text-sm">{study.problem}</p>
                       </div>
                       <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">The Fix</p>
-                        <p className="text-slate-600 text-sm leading-relaxed">{study.fix}</p>
+                        <p className="text-slate-400 italic text-sm">{study.fix}</p>
                       </div>
                       <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">The Result</p>
-                        <p className="text-green-600 font-semibold text-sm leading-relaxed">{study.result}</p>
+                        <p className="text-slate-400 italic text-sm">{study.result}</p>
                       </div>
                     </div>
                   </div>
@@ -472,9 +365,11 @@
           <section className="py-20 bg-blue-600">
             <div className="container mx-auto px-6 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">You don't need to have it figured out.</h2>
-              <p className="text-blue-200 mb-10 max-w-xl mx-auto">No pitch. No pressure. Just a real 20-minute conversation about your problem.</p>
+              <p className="text-blue-100 text-xl mb-10 max-w-2xl mx-auto">
+                Just describe the thing that's been bugging you. We'll tell you honestly if we can fix it — and how fast.
+              </p>
               <button onClick={handleCTA} className="bg-white text-blue-600 hover:bg-slate-100 px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-all hover:-translate-y-1">
-                Book a Free 20-Minute Discovery Call
+                Tell Me Your Problem
               </button>
             </div>
           </section>
@@ -494,7 +389,7 @@
                       />
                     </div>
                   </div>
-                  <p className="text-slate-400 mb-6">We build AI-powered workflows and micro-apps for small business owners who are tired of doing things the hard way.</p>
+                  <p className="text-slate-400 mb-6">We build micro-apps and custom workflows for small business owners who are tired of doing things the hard way.</p>
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-lg mb-6">What We Fix</h4>
@@ -503,9 +398,9 @@
                       'Tracking & Reporting',
                       'Customer Follow-Up',
                       'Proof of Work',
-                      'AI Process Automation',
+                      'Workflow Automation',
                       'Custom Micro-Apps',
-                      'Fractional IT Leadership'
+                      'Business Process Design'
                     ].map((item) => (
                       <li key={item}>
                         <button onClick={() => handleNavClick('problems')} className="hover:text-white transition-colors text-left">{item}</button>
@@ -516,7 +411,7 @@
                 <div>
                   <h4 className="text-white font-bold text-lg mb-6">Company</h4>
                   <ul className="space-y-4">
-                    {['About Us', 'Case Studies', 'Privacy Policy'].map((item) => (
+                    {['About Us', 'Case Studies', 'Blog', 'Privacy Policy'].map((item) => (
                       <li key={item}><a href="#" className="hover:text-white transition-colors">{item}</a></li>
                     ))}
                   </ul>
@@ -526,15 +421,15 @@
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
                       <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0 mt-1" />
-                      <span>North Richland Hills, TX<br />Serving DFW &amp; beyond</span>
+                      <span>123 Innovation Drive,<br />Tech Valley, TX 75080</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                      <span>+1 (555) 123-4567</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <Mail className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                      <a href="mailto:contact@nstp.tech" className="hover:text-white transition-colors">contact@nstp.tech</a>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <Calendar className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                      <button onClick={handleCTA} className="hover:text-white transition-colors text-left">Book a Free Discovery Call</button>
+                      <span>hello@northstartech.com</span>
                     </li>
                   </ul>
                 </div>
