@@ -211,7 +211,7 @@
                 <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">What We Do</h2>
                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">Two ways we help your business</h3>
               </div>
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
                 <div className="bg-white border-2 border-blue-600 rounded-2xl p-8 shadow-sm">
                   <span className="inline-block bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">Core Service</span>
@@ -255,35 +255,6 @@
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="bg-white border-2 border-amber-400 rounded-2xl p-8 shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">NEW</div>
-                  <span className="inline-block bg-amber-50 text-amber-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">Texas HOA Service</span>
-                  <div className="bg-amber-50 p-3 rounded-xl inline-block mb-6">
-                    <FileText className="w-8 h-8 text-amber-600" />
-                  </div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-3">HOA Compliance Websites</h4>
-                  <p className="text-slate-600 leading-relaxed mb-6">Texas SB 711 now requires HOAs with 60+ lots to maintain a compliant website. We build fully compliant sites — governing docs, fee schedules, board info, TREC filing — live in 2 weeks.</p>
-                  <ul className="space-y-3 mb-6">
-                    {[
-                      'SB 711 & Texas Property Code compliant',
-                      'All 8 required pages built for you',
-                      'Live in 2 weeks, starting at $499',
-                      'Ongoing hosting & updates from $79/mo'
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                        <span className="text-slate-700 text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href="hoa-compliance.html"
-                    className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all shadow-md shadow-amber-200"
-                  >
-                    Learn More <ChevronRight className="w-4 h-4" />
-                  </a>
                 </div>
 
               </div>
@@ -454,7 +425,7 @@
                 </p>
                 <p className="text-slate-400 text-sm mt-3 italic">These are illustrative examples based on common problems we solve.</p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-3 gap-8">
                 {[
                   {
                     industry: "Lawn & Tree Service",
@@ -473,20 +444,10 @@
                     problem: "Policy renewal tracking was done in a spreadsheet. Agents manually checked it every week and emailed customers individually. Things fell through the cracks.",
                     fix: "A lightweight renewal dashboard with automated 90/60/30-day customer outreach — personalized by policy type — and a live view of what's due each week.",
                     result: "No more missed renewals. Agents spend their time closing, not chasing calendars."
-                  },
-                  {
-                    industry: "HOA Board — DFW",
-                    problem: "Texas SB 711 required their 140-lot community to have a compliant website by September 1, 2025. The volunteer board had no IT resources, no budget for an agency, and no idea where to start.",
-                    fix: "A fully compliant 8-page HOA website — governing docs, fee schedule, board directory, meeting minutes, ARC forms — built from a simple intake form and live in under two weeks.",
-                    result: "Fully SB 711 compliant on day one. Board president said it was the easiest tech project they'd ever done.",
-                    highlight: true
                   }
                 ].map((study, idx) => (
-                  <div key={idx} className={`p-8 rounded-2xl hover:shadow-lg transition-all duration-300 relative overflow-hidden ${study.highlight ? 'bg-amber-50 border-2 border-amber-300' : 'bg-white border border-slate-200'}`}>
-                    {study.highlight && (
-                      <div className="absolute top-0 right-0 bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">SB 711</div>
-                    )}
-                    <div className={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6 ${study.highlight ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700'}`}>{study.industry}</div>
+                  <div key={idx} className="bg-white border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition-all duration-300">
+                    <div className="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">{study.industry}</div>
                     <div className="space-y-5">
                       <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">The Problem</p>
@@ -498,13 +459,8 @@
                       </div>
                       <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">The Result</p>
-                        <p className={`font-semibold text-sm leading-relaxed ${study.highlight ? 'text-amber-700' : 'text-green-600'}`}>{study.result}</p>
+                        <p className="text-green-600 font-semibold text-sm leading-relaxed">{study.result}</p>
                       </div>
-                      {study.highlight && (
-                        <a href="hoa-compliance.html" className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 text-sm font-semibold transition-colors">
-                          See HOA Compliance Service <ChevronRight className="w-4 h-4" />
-                        </a>
-                      )}
                     </div>
                   </div>
                 ))}
@@ -549,17 +505,10 @@
                       'Proof of Work',
                       'AI Process Automation',
                       'Custom Micro-Apps',
-                      'Fractional IT Leadership',
-                      'HOA Compliance Websites'
+                      'Fractional IT Leadership'
                     ].map((item) => (
                       <li key={item}>
-                        {item === 'HOA Compliance Websites' ? (
-                          <a href="hoa-compliance.html" className="hover:text-amber-400 transition-colors text-amber-300 font-medium flex items-center gap-1">
-                            {item} <ChevronRight className="w-3 h-3" />
-                          </a>
-                        ) : (
-                          <button onClick={() => handleNavClick('problems')} className="hover:text-white transition-colors text-left">{item}</button>
-                        )}
+                        <button onClick={() => handleNavClick('problems')} className="hover:text-white transition-colors text-left">{item}</button>
                       </li>
                     ))}
                   </ul>
