@@ -81,14 +81,6 @@
   .btn-success:hover { background: #15803d; }
   .step-indicator { font-size: 13px; color: #64748b; }
 
-  .output-section { background: #0f2d5c; color: white; border-radius: 12px; padding: 28px; margin-top: 20px; display: none; }
-  .output-section.visible { display: block; }
-  .output-section h3 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
-  .output-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 20px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.7; color: #e2e8f0; white-space: pre-wrap; overflow-x: auto; max-height: 500px; overflow-y: auto; }
-  .copy-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; margin-top: 12px; transition: all 0.2s; }
-  .copy-btn:hover { background: rgba(255,255,255,0.25); }
-  .copy-btn.copied { background: #22c55e; border-color: #22c55e; }
-
   .alert { background: #fef3c7; border: 1px solid #fbbf24; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #92400e; margin-bottom: 16px; }
 
   @media (max-width: 600px) {
@@ -540,12 +532,12 @@
       <p style="font-size:13px; font-weight:700; color:#15803d; margin-bottom:10px;">✅ What happens next:</p>
       <div style="font-size:14px; color:#166534; line-height:1.8;">
         <div>1. Email your governing documents (CC&Rs, Bylaws, Rules) as PDFs to:</div>
-        <div style="background:white; border-radius:6px; padding:8px 12px; margin:8px 0; font-weight:700; color:#0f2d5c; font-size:15px;">hoa@northstartechpartners.com</div>
+        <div style="background:white; border-radius:6px; padding:8px 12px; margin:8px 0; font-weight:700; color:#0f2d5c; font-size:15px;">HOA.Compliance@northstartechnologypartners.com</div>
         <div>2. Use subject line: <strong id="thankyou-subject"></strong></div>
         <div style="margin-top:8px;">3. We'll send you a staging link to review within <strong>10 business days</strong>.</div>
       </div>
     </div>
-    <p style="font-size:13px; color:#64748b;">Questions? Email us at <a href="mailto:hoa@northstartechpartners.com" style="color:#1a4a8a; font-weight:600;">hoa@northstartechpartners.com</a></p>
+    <p style="font-size:13px; color:#64748b;">Questions? Email us at <a href="mailto:HOA.Compliance@northstartechnologypartners.com" style="color:#1a4a8a; font-weight:600;">HOA.Compliance@northstartechnologypartners.com</a></p>
   </div>
 
   <!-- ERROR SCREEN (shown if Formspree fails) -->
@@ -553,7 +545,7 @@
     <div style="font-size:48px; margin-bottom:16px;">⚠️</div>
     <h2 style="font-size:22px; font-weight:700; color:#991b1b; margin-bottom:12px;">Submission Error</h2>
     <p style="font-size:15px; color:#374151; margin-bottom:20px;">Something went wrong sending your form. Please email us directly:</p>
-    <a href="mailto:hoa@northstartechpartners.com" style="background:#1a4a8a; color:white; padding:12px 28px; border-radius:8px; text-decoration:none; font-weight:600; font-size:15px;">Email hoa@northstartechpartners.com</a>
+    <a href="mailto:HOA.Compliance@northstartechnologypartners.com" style="background:#1a4a8a; color:white; padding:12px 28px; border-radius:8px; text-decoration:none; font-weight:600; font-size:15px;">Email HOA.Compliance@northstartechnologypartners.com</a>
   </div>
 
 </div>
@@ -561,10 +553,10 @@
 <script>
 // ─── REPLACE THIS WITH YOUR FORMSPREE ENDPOINT ───────────────────────────────
 // 1. Go to https://formspree.io and sign up (free)
-// 2. Create a new form — set notification email to: hoa@northstartechpartners.com
+// 2. Create a new form — set notification email to: HOA.Compliance@northstartechnologypartners.com
 // 3. Copy your form ID (looks like: xpwzgkab)
 // 4. Replace YOUR_FORMSPREE_ID below with your actual ID
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkoqpary';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
 // ─────────────────────────────────────────────────────────────────────────────
 
 let currentSection = 1;
@@ -826,123 +818,5 @@ async function submitForm() {
 }
 </script>
 
-function generateOutput() {
-  const data = `You are building a complete, production-ready HOA compliance website for a Texas homeowners association. This site must fully satisfy Texas Senate Bill 711 (SB 711) and Texas Property Code Section 207.006.
-
-Build this as a static site using React + Vite + Tailwind CSS, deployable to GitHub Pages.
-
-## CLIENT DATA
-
-\`\`\`
-HOA_NAME: "${val('hoa_name')}"
-HOA_SHORT_NAME: "${val('hoa_short_name') || val('hoa_name')}"
-SUBDIVISION_NAME: "${val('subdivision_name')}"
-HOA_ADDRESS: "${val('hoa_address')}"
-CITY: "${val('city')}"
-STATE: "Texas"
-ZIP: "${val('zip')}"
-COUNTY: "${val('county')}"
-LOT_COUNT: "${val('lot_count')}"
-YEAR_ESTABLISHED: "${val('year_established')}"
-
-MANAGEMENT_TYPE: "${val('management_type') === 'company' ? 'Management Company' : 'Self-Managed'}"
-MANAGEMENT_COMPANY_NAME: "${val('mgmt_company_name')}"
-MANAGEMENT_COMPANY_PHONE: "${val('mgmt_company_phone')}"
-MANAGEMENT_COMPANY_EMAIL: "${val('mgmt_company_email')}"
-
-BOARD_PRESIDENT: { name: "${val('pres_name')}", email: "${val('pres_email')}", phone: "${val('pres_phone')}" }
-BOARD_VP: { name: "${val('vp_name')}", email: "${val('vp_email')}" }
-BOARD_TREASURER: { name: "${val('treas_name')}", email: "${val('treas_email')}" }
-BOARD_SECRETARY: { name: "${val('sec_name')}", email: "${val('sec_email')}" }
-BOARD_MAL1: { name: "${val('mal1_name')}", email: "${val('mal1_email')}" }
-BOARD_MAL2: { name: "${val('mal2_name')}", email: "${val('mal2_email')}" }
-
-GENERAL_CONTACT_EMAIL: "${val('general_email')}"
-GENERAL_CONTACT_PHONE: "${val('general_phone')}"
-MAILING_ADDRESS: "${val('mailing_address')}"
-
-ANNUAL_ASSESSMENT: "${val('assessment_amount')}"
-ASSESSMENT_FREQUENCY: "${val('assessment_freq')}"
-ASSESSMENT_DUE_DATE: "${val('assessment_due')}"
-LATE_FEE: "${val('late_fee')}"
-LATE_FEE_GRACE: "${val('late_grace')}"
-TRANSFER_FEE: "${val('transfer_fee')}"
-RESALE_CERT_FEE: "${val('resale_cert_fee')}"
-CAP_FEE: "${val('cap_fee')}"
-OTHER_FEES: "${val('other_fees').replace(/\n/g,' | ')}"
-
-MEETING_SCHEDULE: "${val('meeting_schedule')}"
-MEETING_LOCATION: "${val('meeting_location')}"
-NEXT_MEETING: "${val('next_meeting')}"
-ANNUAL_MEETING_MONTH: "${val('annual_meeting_month')}"
-NOTICE_METHOD: "${val('notice_method')}"
-
-DOCUMENTS:
-  CC_RS: "${val('doc_ccrs')}"
-  BYLAWS: "${val('doc_bylaws')}"
-  RULES_REGS: "${val('doc_rules')}"
-  AMENDMENTS: "${val('doc_amendments')}"
-  BUDGET: "${val('doc_budget')}"
-  MEETING_MINUTES: "${val('doc_minutes')}"
-  ARCHITECTURAL_GUIDELINES: "${val('doc_arch')}"
-  TREC_CERT: "${val('doc_trec')}"
-  OTHER: "${val('doc_other').replace(/\n/g,' | ')}"
-
-DOMAIN: "${val('domain')}"
-PRIMARY_COLOR: "${val('primary_color') || 'Navy Blue #0f2d5c'}"
-SECONDARY_COLOR: "${val('secondary_color') || 'Gold #c8a84b'}"
-HAS_LOGO: "${val('has_logo')}"
-HAS_PHOTOS: "${val('has_photos')}"
-PACKAGE: "${val('package')}"
-SPECIAL_FEATURES: "${val('special_features').replace(/\n/g,' | ')}"
-ADDITIONAL_NOTES: "${val('additional_notes').replace(/\n/g,' | ')}"
-\`\`\`
-
-## BUILD REQUIREMENTS
-
-### Tech Stack
-- React 18 + Vite + Tailwind CSS (utility classes only)
-- React Router DOM with HashRouter (GitHub Pages compatible)
-- Lucide React for icons
-- Deployable via gh-pages package
-
-### Repository Structure
-\`\`\`
-hoa-website/
-├── public/documents/  ← all PDFs go here
-├── src/
-│   ├── components/ (Header, Footer, Nav, DocumentCard)
-│   ├── pages/ (Home, Documents, Board, Financials, Meetings, ArchitecturalReview, Contact, Compliance)
-│   ├── data/hoaData.js  ← ALL client data as constants — single source of truth
-│   ├── App.jsx
-│   └── main.jsx
-├── vite.config.js  (base: '/[repo-name]/' for GitHub Pages)
-└── package.json  (includes deploy script: "npm run build && gh-pages -d dist")
-\`\`\`
-
-### Pages Required
-1. **Home** — HOA name, compliance badge, next meeting, assessment amount, quick links
-2. **Documents** — SB 711 document vault with CC&Rs, Bylaws, Rules, Amendments, Budget, Minutes, Arch Guidelines
-3. **Board** — All board members with names, titles, emails, term info
-4. **Financials** — Full fee schedule, assessment details, budget link, records access notice (§209.005)
-5. **Meetings** — Schedule, next meeting, location, minutes archive, notice signup
-6. **Architectural Review** — ARC process, submission form, guidelines download, timeline
-7. **Contact** — Contact form (Name, Email, Address, Subject dropdown, Message), board contact, mailing address
-8. **Compliance** — SB 711 compliance statement, TREC certificate status, records retention policy, last updated date
-
-### Global Requirements
-- Mobile-first, fully responsive
-- Footer: HOA name + "Website by North Star Technology Partners | northstartechpartners.com"
-- All PDFs open in new tab
-- Visible "Last Updated" date on Documents and Financials pages
-- Meta descriptions on all pages
-- SB 711 Compliant badge on homepage and footer
-
-### Deliverables
-1. Complete React app — all pages, components, routing
-2. hoaData.js fully populated with all client data above
-3. README.md with update instructions, GitHub Pages deploy steps, custom domain setup
-4. COMPLIANCE_CHECKLIST.md confirming each SB 711 requirement and which page satisfies it
-
-Build the complete, production-ready site now.`;
-}
+</body>
+</html>
