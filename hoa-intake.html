@@ -108,8 +108,9 @@
       <div class="progress-step" id="step-4"></div>
       <div class="progress-step" id="step-5"></div>
       <div class="progress-step" id="step-6"></div>
+      <div class="progress-step" id="step-7"></div>
     </div>
-    <div class="progress-label" id="progress-label">Step 1 of 6</div>
+    <div class="progress-label" id="progress-label">Step 1 of 7</div>
   </div>
 
   <!-- SECTION 1: HOA Identity -->
@@ -515,7 +516,100 @@
     <div class="nav-buttons">
       <button class="btn btn-secondary" onclick="goTo(5)">← Back</button>
       <div style="display:flex;align-items:center;gap:16px">
-        <span class="step-indicator">Step 6 of 6</span>
+        <span class="step-indicator">Step 6 of 7</span>
+        <button class="btn btn-primary" onclick="goTo(7)">Next: Records History →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: Records History & Retention -->
+  <div class="section" id="section-7">
+    <div class="section-header">
+      <div class="section-icon">🗂️</div>
+      <div>
+        <div class="section-title">Records History & Retention</div>
+        <div class="section-subtitle">Texas law requires 7 years of financials, 3 years of minutes — we'll build your archive structure from day one</div>
+      </div>
+    </div>
+
+    <div class="compliance-checklist" style="margin-bottom:20px">
+      <h4>📋 Texas Property Code Retention Requirements</h4>
+      <div class="check-item">Permanent: CC&Rs, Bylaws, Articles of Incorporation, all amendments</div>
+      <div class="check-item">7 Years: Financial records, tax returns, audits, bank statements, budgets</div>
+      <div class="check-item">3 Years: Meeting minutes, ballots, proxies, written actions</div>
+    </div>
+
+    <div class="field-grid">
+
+      <div class="field">
+        <label>Oldest Year of Meeting Minutes Available</label>
+        <select id="minutes_oldest_year">
+          <option value="2026">2026 (starting fresh)</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021 or older</option>
+          <option value="none">None available digitally</option>
+        </select>
+        <span class="hint">We'll create year folders going back to this year</span>
+      </div>
+
+      <div class="field">
+        <label>Oldest Year of Financial Records Available</label>
+        <select id="financials_oldest_year">
+          <option value="2026">2026 (starting fresh)</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019 or older (7+ years)</option>
+          <option value="none">None available digitally</option>
+        </select>
+        <span class="hint">Required: 7 years back from current year</span>
+      </div>
+
+      <div class="field field-full">
+        <label>Historical Records You Can Provide at Launch</label>
+        <textarea id="historical_records" placeholder="List any historical records you have ready to upload. Examples:&#10;— Meeting minutes: Jan 2024, Mar 2024, Jun 2024, Sep 2024&#10;— 2024 Annual Budget PDF&#10;— 2023 Audit Report&#10;— 2022–2024 financial statements&#10;&#10;Leave blank if starting fresh with only current documents."></textarea>
+        <span class="hint">We'll create the folder structure for all years and you can upload historical docs over time</span>
+      </div>
+
+      <div class="field">
+        <label>Do you have prior audits or tax returns?</label>
+        <select id="has_audits">
+          <option value="yes_will_provide">Yes — I will email them as PDFs</option>
+          <option value="yes_over_time">Yes — will provide over time</option>
+          <option value="no">No / Not applicable</option>
+          <option value="unknown">Not sure</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Records Currently Stored In</label>
+        <select id="records_storage">
+          <option value="mixed">Mix of paper and digital</option>
+          <option value="digital">Mostly digital (PDFs)</option>
+          <option value="paper">Mostly paper — need to scan</option>
+          <option value="management_company">Management company holds them</option>
+          <option value="none">No organized records currently</option>
+        </select>
+        <span class="hint">Helps us plan the rollout of your archive</span>
+      </div>
+
+      <div class="field field-full">
+        <label>Records Notes <span class="opt">(optional)</span></label>
+        <textarea id="records_notes" style="min-height:70px" placeholder="Any other context about your historical records — gaps in history, records held by a prior management company, records being scanned, etc."></textarea>
+      </div>
+
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-secondary" onclick="goTo(6)">← Back</button>
+      <div style="display:flex;align-items:center;gap:16px">
+        <span class="step-indicator">Step 7 of 7</span>
         <button class="btn btn-success" id="submit-btn" onclick="submitForm()">🚀 Submit Intake Form</button>
       </div>
     </div>
@@ -556,11 +650,11 @@
 // 2. Create a new form — set notification email to: HOA.Compliance@northstartechnologypartners.com
 // 3. Copy your form ID (looks like: xpwzgkab)
 // 4. Replace YOUR_FORMSPREE_ID below with your actual ID
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkoqpary';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
 // ─────────────────────────────────────────────────────────────────────────────
 
 let currentSection = 1;
-const totalSections = 6;
+const totalSections = 7;
 
 function goTo(n) {
   document.getElementById('section-' + currentSection).classList.remove('visible');
@@ -655,6 +749,14 @@ HAS_PHOTOS: "${val('has_photos')}"
 PACKAGE: "${val('package')}"
 SPECIAL_FEATURES: "${val('special_features').replace(/\n/g,' | ')}"
 ADDITIONAL_NOTES: "${val('additional_notes').replace(/\n/g,' | ')}"
+
+RECORDS_RETENTION:
+  MINUTES_OLDEST_YEAR: "${val('minutes_oldest_year')}"
+  FINANCIALS_OLDEST_YEAR: "${val('financials_oldest_year')}"
+  HISTORICAL_RECORDS: "${val('historical_records').replace(/\n/g,' | ')}"
+  HAS_AUDITS: "${val('has_audits')}"
+  RECORDS_STORAGE: "${val('records_storage')}"
+  RECORDS_NOTES: "${val('records_notes').replace(/\n/g,' | ')}"
 \`\`\`
 
 ## BUILD REQUIREMENTS
@@ -667,9 +769,23 @@ ADDITIONAL_NOTES: "${val('additional_notes').replace(/\n/g,' | ')}"
 
 ### Repository Structure
 hoa-website/
-├── public/documents/  ← all PDFs go here
+├── public/
+│   └── documents/
+│       ├── governing/
+│       │   ├── cc-rs.pdf
+│       │   ├── bylaws.pdf
+│       │   ├── rules-regulations.pdf
+│       │   └── amendments/
+│       ├── minutes/
+│       │   ├── [YEAR]/          ← scaffold from MINUTES_OLDEST_YEAR to current year
+│       │   │   └── README.md    ← placeholder: "Add meeting minutes PDFs here"
+│       ├── financials/
+│       │   ├── [YEAR]/          ← scaffold from FINANCIALS_OLDEST_YEAR to current year
+│       │   │   └── README.md    ← placeholder: "Add budget, audit, financial PDFs here"
+│       └── architectural/
+│           └── arc-guidelines.pdf
 ├── src/
-│   ├── components/ (Header, Footer, Nav, DocumentCard)
+│   ├── components/ (Header, Footer, Nav, DocumentCard, YearAccordion)
 │   ├── pages/ (Home, Documents, Board, Financials, Meetings, ArchitecturalReview, Contact, Compliance)
 │   ├── data/hoaData.js  ← ALL client data as constants — single source of truth
 │   ├── App.jsx
@@ -679,13 +795,13 @@ hoa-website/
 
 ### Pages Required
 1. Home — HOA name, compliance badge, next meeting, assessment amount, quick links
-2. Documents — SB 711 document vault with CC&Rs, Bylaws, Rules, Amendments, Budget, Minutes, Arch Guidelines
+2. Documents — Year-accordion archive structure: Governing Docs (flat list, permanent), Meeting Minutes (collapsed by year, newest expanded, 3-year minimum), Financial Records (collapsed by year, newest expanded, 7-year minimum). Each document card shows filename, year, and download button. Include retention policy notice at bottom of page.
 3. Board — All board members with names, titles, emails, term info
 4. Financials — Full fee schedule, assessment details, budget link, records access notice (§209.005)
-5. Meetings — Schedule, next meeting, location, minutes archive, notice signup
+5. Meetings — Schedule, next meeting, location, minutes archive link to Documents page, notice signup
 6. Architectural Review — ARC process, submission form, guidelines download, timeline
 7. Contact — Contact form (Name, Email, Address, Subject dropdown, Message), board contact, mailing address
-8. Compliance — SB 711 compliance statement, TREC certificate status, records retention policy, last updated date
+8. Compliance — SB 711 compliance statement, TREC certificate status, full records retention policy table (Permanent / 7-year / 3-year categories), member access rights notice (§209.005), last updated date
 
 ### Global Requirements
 - Mobile-first, fully responsive
@@ -782,6 +898,13 @@ async function submitForm() {
     'Package Selected':      val('package'),
     'Special Features':      val('special_features'),
     'Additional Notes':      val('additional_notes'),
+    // ── Records Retention
+    'Minutes — Oldest Year':     val('minutes_oldest_year'),
+    'Financials — Oldest Year':  val('financials_oldest_year'),
+    'Historical Records':         val('historical_records'),
+    'Has Audits/Tax Returns':    val('has_audits'),
+    'Records Currently Stored':  val('records_storage'),
+    'Records Notes':             val('records_notes'),
     // ── The money field — Claude Code prompt pre-built
     '_subject':              `🏘️ NEW HOA INTAKE: ${hoaName} — ${val('city')}, TX`,
     '⚡ CLAUDE CODE PROMPT (copy and paste into Claude Code)': claudePrompt
