@@ -33,7 +33,8 @@
       Mail, MapPin, Menu, X,
       ChevronRight, ArrowRight, CheckCircle2,
       MessageSquare, FileText, Zap, ClipboardList,
-      Wrench, Users, Bot, Calendar
+      Wrench, Users, Bot, Calendar,
+      Linkedin, Facebook
     } from 'lucide-react';
 
     const CALENDLY_URL = "https://calendly.com/howard-nstp/30min";
@@ -592,6 +593,14 @@
               </div>
               <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="text-sm">© {new Date().getFullYear()} North Star Technology Partners.</div>
+                <div className="flex items-center gap-4">
+                  <a href="https://www.linkedin.com/company/north-star-technology-partners" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://www.facebook.com/share/1FBoUcGVja/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-500 transition-colors" aria-label="Facebook">
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
             </div>
           </footer>
