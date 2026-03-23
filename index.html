@@ -454,28 +454,6 @@
                 </p>
                 <p className="text-slate-400 text-sm mt-3 italic">These are illustrative examples based on common problems we solve.</p>
               </div>
-              {/* ── Featured Project Card ── */}
-              <div className="mb-10 rounded-2xl border-2 border-blue-200 bg-blue-50 p-8 lg:p-10">
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {["AI Process Automation", "Compliance Automation", "Agentic Workflow", "AI-Assisted Delivery", "Regulated Industries", "React", "Supabase", "GitHub Actions", "Claude AI"].map(tag => (
-                    <span key={tag} className="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">{tag}</span>
-                  ))}
-                </div>
-                <h4 className="text-xl lg:text-2xl font-bold text-slate-900 mb-4">AI Process Automation in a Regulated Industry — HOA Compliance Platform</h4>
-                <div className="text-slate-600 text-base leading-relaxed space-y-3 mb-6">
-                  <p>This project started as a compliance problem and became a blueprint for AI-driven business automation.</p>
-                  <p>Texas SB 711 requires HOA management companies to maintain a compliant public website — and most are unaware they're exposed. Rather than market a service manually, we built an intelligent system around the gap: a live-data prospecting tool that queries the Texas state HOA registry, scores every entity for compliance risk, and surfaces the highest-priority targets automatically.</p>
-                  <p>From there, prospects move through a structured intake pipeline that feeds directly into an AI-assisted build process. Claude generates the compliant site, GitHub Actions handles deployment, and the client is live within 48 hours — no developer required after initial setup.</p>
-                  <p>The same architecture — regulated data in, AI processing, automated output — applies to dozens of enterprise workflows: vendor onboarding, policy documentation, regulatory reporting, and more. This is what that looks like in production.</p>
-                </div>
-                <div className="border-t border-blue-200 pt-5">
-                  <p className="text-slate-600 text-sm mb-3">Exploring how AI automation could work inside your organization? That's exactly what we do at NSTP.</p>
-                  <button onClick={handleCTA} className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all hover:-translate-y-0.5 shadow">
-                    Schedule a Conversation <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {
