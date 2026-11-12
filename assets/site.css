@@ -251,12 +251,13 @@ table.compare { width: 100%; border-collapse: collapse; min-width: 620px; font-s
 .case dd { font-size: 15px; line-height: 1.6; color: var(--muted); margin-top: 4px; }
 .case dd.result { color: var(--green); font-weight: 600; }
 
-/* ─── Founder ─── */
-.founder-card { background: var(--navy); border-radius: 22px; padding: 44px 36px; text-align: center; }
-.founder-card img { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; object-position: top; margin: 0 auto 20px; border: 3px solid var(--gold); }
-.founder-name { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.4rem; font-weight: 700; }
-.founder-role { color: var(--gold-lt); font-size: 14px; margin: 4px 0 16px; }
-.founder-card p { color: rgba(255,255,255,.6); font-size: 14px; }
+/* ─── Experience stats ─── */
+.stat-card {
+  background: var(--navy); border-radius: 22px; padding: 44px 36px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px 24px;
+}
+.stat-num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 2.6rem; line-height: 1; color: var(--gold-lt); }
+.stat-label { color: rgba(255,255,255,.7); font-size: 14px; margin-top: 8px; line-height: 1.4; }
 
 /* ─── FAQ ─── */
 .faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
